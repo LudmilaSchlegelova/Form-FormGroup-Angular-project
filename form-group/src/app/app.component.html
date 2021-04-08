@@ -1,0 +1,31 @@
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+  <div class="input-group input-group-sm mb-3">
+    <input
+      formControlName="name"
+      placeholder="Enter name"
+      type="text"
+      class="form-control"
+      aria-describedby="inputGroup-sizing-sm"
+    />
+  </div>
+  <p *ngIf="name && name.valid">Name is valid!</p>
+  <p *ngIf="name && name.invalid">Name is invalid!</p>
+  <p *ngIf="name && name.touched">Touched!</p>
+  <p *ngIf="name && name.untouched">Untouched!</p>
+  <div class="input-group input-group-sm mb-3">
+    <input
+      formControlName="password"
+      placeholder="Enter password"
+      type="password"
+      class="form-control"
+      aria-describedby="inputGroup-sizing-sm"
+    />
+  </div>
+  <p *ngIf="password && password.invalid">Password is invalid!</p>
+  <p *ngIf="password && password.errors?.isCorrectPassword">
+    Password is not same!
+  </p>
+  <button type="submit" class="btn btn-info">Submit</button>
+  <button class="btn btn-danger" (click)="onReset()">Reset</button>
+  <button class="btn btn-warning" (click)="onPatch()">Patch</button>
+</form>
